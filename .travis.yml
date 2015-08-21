@@ -7,9 +7,9 @@ before_install:
         - docker pull adamryman/splunk-test:latest
         - docker run --hostname splunk -p 8089:8089 -d adamryman/splunk-test
         - docker ps -a
-        - curl -k --verbose http://127.0.0.1:8089/services/auth/login -d username=admin -d password=changeme
+        - curl -k --verbose https://127.0.0.1:8089/services/auth/login -d username=admin -d password=changeme
         - node sdkdo tests context
-        - curl -k --verbose http://localhost:8089/services/auth/login -d username=admin -d password=changeme
+        - curl -k --verbose https://localhost:8089/services/auth/login -d username=admin -d password=changeme
 
 
 language: node_js
