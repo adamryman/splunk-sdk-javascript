@@ -5,7 +5,7 @@ services:
 
 before_install:
         - docker pull adamryman/splunk-test:latest
-        - docker run --hostname splunk -p 8000:8000 -d outcoldman/splunk
+        - docker run --hostname splunk -p 8089:8089 -d adamryman/splunk-test
         - docker ps -a
 
 
