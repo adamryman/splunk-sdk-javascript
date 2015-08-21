@@ -7,6 +7,8 @@ before_install:
         - docker pull adamryman/splunk-test:latest
         - docker run --hostname splunk -p 8089:8089 -d adamryman/splunk-test
         - docker ps -a
+        - sudo apt-get update
+        - sudo apt-get install curl
         - curl --version
         - curl -k --verbose --sslv3 https://0.0.0.0:8089/services/auth/login -d username=admin -d password=changeme
         - node sdkdo tests context
