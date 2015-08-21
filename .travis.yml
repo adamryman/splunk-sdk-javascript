@@ -4,12 +4,9 @@ services:
         - docker
 
 before_install:
-        - docker pull outcoldman/splunk:latest
+        - docker pull adamryman/splunk-test:latest
         - docker run --hostname splunk -p 8000:8000 -d outcoldman/splunk
         - docker ps -a
-        - wget https://gist.github.com/shakeelmohamed/99b76da3f1a4fd9dcfad/raw/d97b8b5c82b0e4b40ccee6656ede1d6aeb24d60c/sdk-app-collection.tar.gz
-        - docker cp sdk-app-collection.tar.gz `docker ps -q`:/opt/splunk/
-        - docker exec `docker ps -q` tar -xf sdk-app-collection.tar.gz -C etc/apps
 
 
 language: node_js
