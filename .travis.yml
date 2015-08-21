@@ -4,8 +4,8 @@ services:
         - docker
 
 before_install:
-        - docker pull adamryman/splunk-test:latest
-        - docker run --hostname splunk -p 8089:8089 -d adamryman/splunk-test
+        - docker pull adamryman/splunk-travis-ci:latest
+        - docker run --hostname splunk -p 8089:8089 -d adamryman/splunk-travis-ci
         - docker ps -a
         - sudo apt-get update
         - sudo apt-get install curl
