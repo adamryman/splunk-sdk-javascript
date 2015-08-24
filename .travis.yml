@@ -13,7 +13,7 @@ before_install:
         - curl -k --verbose --sslv3 https://0.0.0.0:8089/services/auth/login -d username=admin -d password=changeme
         - node sdkdo tests context
         - curl -k --verbose https://localhost:8089/services/auth/login -d username=admin -d password=changeme
-
+        - curl -k --verbose https://localhost:8089/services/auth/login -d username=admin -d password=changeme
 
 language: node_js
 
