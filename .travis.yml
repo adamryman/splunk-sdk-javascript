@@ -17,6 +17,7 @@ before_install:
         - curl -k --verbose https://localhost:8089/services/auth/login -d username=admin -d password=changeme
         - curl -k --verbose https://localhost:8089/services/auth/login -d username=admin -d password=changeme
 
+
 language: node_js
 
 script:
