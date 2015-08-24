@@ -6,12 +6,12 @@ services:
 before_install:
         - docker pull adamryman/splunk-travis-ci:latest
         - docker images
-        - docker run --hostname splunk -p 8089:8089 -d adamryman/splunk-travis-ci
+        - docker run --hostname splunk --name splunk -p 8089:8089 -d adamryman/splunk-travis-ci
         - docker ps -a
         - docker ps -q
         - sudo apt-get update
         - sudo apt-get install curl
-        - docker exec `docker ps -q` cat /opt/splunk/etc/system/local/server.conf
+        - docker exec splunk cat /opt/splunk/etc/system/local/server.conf
         - curl --version
         - curl -k --verbose --sslv3 https://0.0.0.0:8089/services/auth/login -d username=admin -d password=changeme
         - node sdkdo tests context
