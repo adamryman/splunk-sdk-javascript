@@ -21,7 +21,6 @@
     var DEFAULTS_PATHS = [
         process.env.HOME || process.env.HOMEPATH,
         path.resolve(__dirname, ".."),
-        path.resolve(__dirname, "..", "..")
     ];
 
     var readDefaultsFile = function(path, defaults) {
