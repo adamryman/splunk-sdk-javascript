@@ -5,6 +5,10 @@ services:
 
 before_install:
         - echo $HOME
+        - touch $HOME/.splunkrc
+        - echo host=localhost >> $HOME/.splunkrc
+        - echo username=admin >> $HOME/.splunkrc
+        - echo password=changeme >> $HOME/.splunkrc
         - pwd
         - docker pull adamryman/splunk-travis-ci:latest
         - docker images
