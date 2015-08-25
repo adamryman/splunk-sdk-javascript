@@ -4,6 +4,8 @@ services:
         - docker
 
 before_install:
+        - echo $HOME
+        - pwd
         - docker pull adamryman/splunk-travis-ci:latest
         - docker images
         - docker run -p 8089:8089 -d adamryman/splunk-travis-ci
