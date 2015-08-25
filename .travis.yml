@@ -6,7 +6,7 @@ services:
 before_install:
         - docker pull adamryman/splunk-travis-ci:latest
         - docker images
-        - docker run --hostname splunk --name splunk -p 8089:8089 -d adamryman/splunk-travis-ci
+        - docker run -p 8089:8089 -d adamryman/splunk-travis-ci
         - docker ps -a
         - docker ps -q
         - sudo apt-get update
