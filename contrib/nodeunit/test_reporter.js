@@ -58,7 +58,6 @@ track.createTracker = function (on_exit) {
     };
 
     process.on('exit', function() {
-        console.log("Does this actually get called?");
         on_exit = on_exit || exports.default_on_exit;
         on_exit(tracker);
     });
@@ -74,7 +73,6 @@ track.default_on_exit = function (tracker) {
         for (var i = 0; i < names.length; i += 1) {
             console.log(names[i]);
         }
-        console.log("TRACKERFAILED", tracker.failed);
         process.reallyExit(tracker.unfinished() || tracker.failed);
     }
     process.reallyExit(tracker.failed);
@@ -131,7 +129,6 @@ exports.run = function (modules, options) {
             }
             console.log('');
             console.log('To fix this, make sure all tests call test.done()');
-            console.log("TRACKERFAILED", tracker.failed);
             process.reallyExit(tracker.unfinished() || tracker.failed);
         }
         process.reallyExit(tracker.failed);
