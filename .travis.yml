@@ -8,10 +8,15 @@ before_install:
         - echo username=admin >> $HOME/.splunkrc
         - echo password=changeme >> $HOME/.splunkrc
         - export SPLUNK_HOME="/opt/splunk"
-        - docker pull adamryman/splunk-travis-ci:latest
+        - docker pull adamryman/splunk-travis-ci:$SPLUNK_VERSION
         - docker run -p 8089:8089 -d adamryman/splunk-travis-ci
 
 language: node_js
 
+env:
+        - SPLUNK_VERSION=6.2.5
+        - SPLUNK_VERSION=6.1.9
+        - SPLUNK_VERSION=6.0.10
+
 script:
-        node sdkdo tests
+        node sdkdo tests context
