@@ -12,10 +12,6 @@ before_install:
         - export SPLUNK_HOME="/opt/splunk"
         - docker pull adamryman/splunk-travis-ci:$SPLUNK_VERSION
         - docker run -p 8089:8089 -d adamryman/splunk-travis-ci:$SPLUNK_VERSION
-        - sudo apt-get update
-        - sudo apt-get install curl
-        - curl --version
-        - curl -k --verbose --sslv3 https://0.0.0.0:8089/services/auth/login -d username=admin -d password=changeme
 language: node_js
 
 env:
