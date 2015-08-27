@@ -19,9 +19,8 @@ before_install:
 language: node_js
 
 env:
+        - SPLUNK_VERSION=remote-entry
         - SPLUNK_VERSION=6.2.5
-        - SPLUNK_VERSION=6.1.9
-        - SPLUNK_VERSION=6.0.10
 
 script:
         node sdkdo tests context
