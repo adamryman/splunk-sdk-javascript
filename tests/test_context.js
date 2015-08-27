@@ -806,7 +806,6 @@ exports.setup = function(svc) {
             },
 
             "_getCookieString works as expected": function(test){
-                test.ok(false);
                 var service = new splunkjs.Service(
                 {
                     scheme: svc.scheme,
