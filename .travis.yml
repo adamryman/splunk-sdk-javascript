@@ -4,6 +4,8 @@ services:
         - docker
 
 before_install:
+        - sudo apt-get update curl
+        - sudo apt-get install curl
         - echo host=localhost >> $HOME/.splunkrc
         - echo username=admin >> $HOME/.splunkrc
         - echo password=changeme >> $HOME/.splunkrc
