@@ -22,7 +22,10 @@ before_install:
           done;
 
 language: node_js
-
+node_js:
+        - "0.12"
+        - "0.10"
+        - "0.8"
 env:
         - SPLUNK_VERSION=6.2.5
         - SPLUNK_VERSION=6.1.9
