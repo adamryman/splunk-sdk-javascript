@@ -33,4 +33,4 @@ env:
         - SPLUNK_VERSION=6.0.10
 
 script:
-        node sdkdo tests context
+        node sdkdo tests
