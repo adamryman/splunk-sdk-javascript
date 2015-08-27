@@ -10,7 +10,17 @@ before_install:
         - export SPLUNK_HOME="/opt/splunk"
         - docker pull adamryman/splunk-travis-ci:$SPLUNK_VERSION
         - docker run -p 8089:8089 -d adamryman/splunk-travis-ci:$SPLUNK_VERSION
-        - sleep 10
+        - i="0"
+        - while [ $i -lt 20 ];
+          do;
+            if curl -sk https://localhost:8089/services/server/info 1>/dev/null $2>1;  then;
+                break;
+            fi;
+            echo yo;
+            sleep 1;
+            i=$[$i+1];
+            done;
+
 language: node_js
 
 env:
