@@ -3,6 +3,9 @@ sudo: required
 services:
         - docker
 
+notifications:
+        email: false
+
 before_install:
         - echo host=localhost >> $HOME/.splunkrc
         - echo username=admin >> $HOME/.splunkrc
