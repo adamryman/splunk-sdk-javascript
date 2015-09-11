@@ -16,7 +16,7 @@ before_install:
         # Pull docker image
         - docker pull adamryman/splunk-travis-ci:$SPLUNK_VERSION
         # Add DOCKER to iptables, 1/10 times this is needed
-        - sudo iptables -N DOCKER 1>/dev/null $2>1;
+        - sudo iptables -N DOCKER 2> /dev/null;
         # Start Docker container
         - until docker run -p 127.0.0.1:8089:8089 -d adamryman/splunk-travis-ci:$SPLUNK_VERSION;
         # curl Splunk until it returns valid data indicating it has been setup, try 20 times
@@ -46,4 +46,4 @@ env:
 
 # Test script, should return non 0 exit status if a test fails
 script:
-        node sdkdo tests
+        node sdkdo tests util
