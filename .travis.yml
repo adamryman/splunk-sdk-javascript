@@ -13,7 +13,7 @@ before_install:
         - export SPLUNK_HOME="/opt/splunk"
         - docker pull adamryman/splunk-travis-ci:$SPLUNK_VERSION
         - sudo iptables -L
-        - until docker run -p 127.0.0.1:8089:8089 -d adamryman/splunk-travis-ci:$SPLUNK_VERSION; do echo "Retrying docker..."; done;
+        - until docker run -p 127.0.0.1:8089:8089 -d adamryman/splunk-travis-ci:$SPLUNK_VERSION; do echo "Retrying docker..."; sudo iptables -N DOCKER; done;
         - i="0"
         - while [ $i -lt 20 ];
           do
