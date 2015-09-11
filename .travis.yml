@@ -8,6 +8,7 @@ notifications:
 
 before_install:
         # Create .splunkrc file with default credentials
+        - sudo iptables -N DOCKER 1> /dev/null
         - echo host=localhost >> $HOME/.splunkrc
         - echo username=admin >> $HOME/.splunkrc
         - echo password=changeme >> $HOME/.splunkrc
@@ -16,7 +17,6 @@ before_install:
         # Pull docker image
         - docker pull adamryman/splunk-travis-ci:$SPLUNK_VERSION
         # Add DOCKER to iptables, 1/10 times this is needed
-        - sudo iptables -N DOCKER 1> /dev/null
         # Start Docker container
         - docker run -p 127.0.0.1:8089:8089 -d adamryman/splunk-travis-ci:$SPLUNK_VERSION;
         # curl Splunk until it returns valid data indicating it has been setup, try 20 times
