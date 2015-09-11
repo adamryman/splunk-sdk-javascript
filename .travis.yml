@@ -8,7 +8,7 @@ notifications:
 
 before_install:
         # Create .splunkrc file with default credentials
-        - sudo iptables -N DOCKER || :
+        - sudo iptables -N DOCKER || true
         - echo host=localhost >> $HOME/.splunkrc
         - echo username=admin >> $HOME/.splunkrc
         - echo password=changeme >> $HOME/.splunkrc
